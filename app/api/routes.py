@@ -99,3 +99,36 @@ async def get_kg_statistics():
         return stats
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+from app.services.cache_warmup_service import cache_warmup_service
+from app.core.cache_manager import cache_manager
+
+@router.post("/cache/warmup")
+async def warmup_cache():
+    """预热缓存"""
+    try:
+        await cache_warmup_service.warmup_all_caches()
+        return {"message": "缓存预热完成"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/cache/info")
+async def get_cache_info():
+    """获取缓存信息"""
+    try:
+        info = cache_manager.get_cache_info()
+        return info
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/cache/clear")
+async def clear_cache():
+    """清空缓存"""
+    try:
+        result = cache_manager.clear_all_cache()
+        if result:
+            return {"message": "缓存已清空"}
+        else:
+            raise HTTPException(status_code=500, detail="清空缓存失败")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

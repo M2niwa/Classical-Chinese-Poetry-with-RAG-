@@ -2,7 +2,7 @@ import hashlib
 import json
 import redis
 import logging
-from typing import Any, Callable, Optional
+from typing import Any, Callable, Optional, Dict
 from functools import wraps
 from app.core.config import settings
 
@@ -129,6 +129,35 @@ class CacheManager:
             return async_wrapper if asyncio.iscoroutinefunction(func) else sync_wrapper
         
         return decorator
+    
+    def get_cache_info(self) -> Dict[str, Any]:
+        """获取缓存信息"""
+        if not self.redis_client:
+            return {"status": "Redis未连接"}
+        
+        try:
+            info = self.redis_client.info()
+            return {
+                "status": "连接正常",
+                "used_memory": info.get("used_memory_human", "未知"),
+                "connected_clients": info.get("connected_clients", "未知"),
+                "total_commands_processed": info.get("total_commands_processed", "未知")
+            }
+        except Exception as e:
+            return {"status": f"获取信息失败: {e}"}
+    
+    def clear_all_cache(self) -> bool:
+        """清空所有缓存"""
+        if not self.redis_client:
+            return False
+        
+        try:
+            self.redis_client.flushdb()
+            logger.info("已清空所有缓存")
+            return True
+        except Exception as e:
+            logger.error(f"清空缓存失败: {e}")
+            return False
 
 # 全局缓存管理器实例
 import asyncio

@@ -141,6 +141,25 @@ Implemented in [app/services/sentiment_service.py](file:///d%3A/Users/79472/Desk
 - Using pre-trained models for sentiment analysis 使用预训练模型进行情感分析
 - Result visualization 结果可视化
 
+### 4. Cache Warmup Service 缓存预热服务
+
+Implemented in [app/services/cache_warmup_service.py](file:///d%3A/Users/79472/Desktop/%E5%AE%9E%E9%AA%8C%E4%B8%8E%E6%96%87%E6%A1%A3/RAG-test/app/services/cache_warmup_service.py):
+在 [app/services/cache_warmup_service.py](file:///d%3A/Users/79472/Desktop/%E5%AE%9E%E9%AA%8C%E4%B8%8E%E6%96%87%E6%A1%A3/RAG-test/app/services/cache_warmup_service.py) 中实现：
+
+- Cache preheating for common queries 常见查询的缓存预热
+- RAG search cache preheating RAG搜索缓存预热
+- Cache statistics collection 缓存统计信息收集
+
+### 5. Model Optimization Service 模型优化服务
+
+Implemented in [app/services/model_optimization_service.py](file:///d%3A/Users/79472/Desktop/%E5%AE%9E%E9%AA%8C%E4%B8%8E%E6%96%87%E6%A1%A3/RAG-test/app/services/model_optimization_service.py):
+在 [app/services/model_optimization_service.py](file:///d%3A/Users/79472/Desktop/%E5%AE%9E%E9%AA%8C%E4%B8%8E%E6%96%87%E6%A1%A3/RAG-test/app/services/model_optimization_service.py) 中实现：
+
+- Optimized embedding models 优化的嵌入模型
+- Optimized language models 优化的语言模型
+- Prompt template optimization 提示模板优化
+- Model performance benchmarking 模型性能基准测试
+
 ## Running the Project 运行项目
 
 ### 1. Start Backend Service 启动后端服务

@@ -165,6 +165,14 @@ GET /api/v1/kg/statistics
 1. Multi-level caching strategy 多级缓存策略
 2. Intelligent cache key generation 智能缓存键生成
 3. Automatic expiration mechanism 自动过期机制
+4. Cache warming for common queries 常见查询的缓存预热
+5. Cache statistics and monitoring 缓存统计和监控
+
+### Model Optimization 模型优化
+1. Optimized embedding models 优化的嵌入模型
+2. Optimized language models 优化的语言模型
+3. Prompt template optimization 提示模板优化
+4. Model performance benchmarking 模型性能基准测试
 
 ### Asynchronous Optimization 异步优化
 1. Thread pool for handling blocking operations 线程池处理阻塞操作

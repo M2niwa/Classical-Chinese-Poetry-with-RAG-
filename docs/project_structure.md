@@ -23,7 +23,9 @@
 │   │   ├── __init__.py
 │   │   ├── rag_service.py              # RAG core service RAG核心服务
 │   │   ├── neo4j_kg_service.py         # Neo4j knowledge graph service Neo4j知识图谱服务
-│   │   └── sentiment_service.py        # Sentiment analysis service 情感分析服务
+│   │   ├── sentiment_service.py        # Sentiment analysis service 情感分析服务
+│   │   ├── cache_warmup_service.py     # Cache warmup service 缓存预热服务
+│   │   └── model_optimization_service.py # Model optimization service 模型优化服务
 │   └── utils/                          # Utility functions 工具函数
 │       ├── __init__.py
 │       └── pdf_processor.py            # PDF processing utilities PDF处理工具
